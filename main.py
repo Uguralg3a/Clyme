@@ -5,18 +5,11 @@ from dotenv import load_dotenv
 intent = discord.Intents.default()
 intent.message_content = True
 
-status = discord.Status.dnd
-activity = discord.Activity(type=discord.ActivityType.playing, name="Clyme")
-bot = discord.Bot(
-    intents = intent,
-    status = status,
-    activity = activity
-)
-
-
+bot = discord.Bot(intents = intent)
 
 @bot.event
 async def on_ready():
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(" Clyme "))
     print(f"{bot.user} ist Online!")
 
 for filename in os.listdir("cogs"):
