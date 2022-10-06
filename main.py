@@ -5,7 +5,15 @@ from dotenv import load_dotenv
 intent = discord.Intents.default()
 intent.message_content = True
 
-bot = discord.Bot(intents = intent)
+status = discord.Status.dnd
+activity = discord.Activity(type=discord.ActivityType.playing, name="Clyme")
+bot = discord.Bot(
+    intents = intent,
+    status = status,
+    activity = activity
+)
+
+
 
 @bot.event
 async def on_ready():
