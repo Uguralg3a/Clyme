@@ -8,6 +8,7 @@ bot = discord.Bot(intents = intent)
 
 @bot.event
 async def on_ready():
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game("Clyme"))
     print(f"{bot.user} ist Online!")
 
 @bot.slash_command(description="Grüße einen User")
